@@ -1,0 +1,61 @@
+//Write a program creating stacks using arrays which include push ,pop, traverse operation//
+
+#include<stdio.h>
+#include<stdlib.h>
+# define max 5
+int top = -1;
+int stack[5];
+void push(int d)
+{
+if(top >= max)
+printf("Stack overflow");
+else
+stack[++top]=d;
+}
+int pop()
+{
+if(top < 0)
+printf("stack underflow");
+else
+return stack[top--];
+}
+void display()
+{int i;
+if(top < 0)
+printf("Stack empty");
+else
+for(i=0;i<=top;i++)
+{
+printf("%d ",stack[i]);
+}
+printf("\n");
+}
+int main()
+{
+int ch,d,p,i;
+while(1)
+{
+printf("Enter your choice ");
+printf("\n 1 for push \n 2 for pop \n 3 for display \n 4 for exit\n");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1:{
+printf("Enter the element you want to insert\n");
+for(i=0;i<5;i++)
+{
+scanf("%d",&d);
+push(d);
+}
+}
+break;
+case 2:p=pop();
+printf("popped element = %d\n",p);
+break;
+case 3:display();
+break;
+case 4:exit(0);
+default:printf("Enter between 1 to 4\n");
+}
+}
+}

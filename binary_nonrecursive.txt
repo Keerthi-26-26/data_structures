@@ -1,0 +1,35 @@
+//Program that uses non recursive function to search for a Key value in a given sorted list of integers using binary search method//
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+int a[20], i, n, key, low, high, mid,size;
+printf("Enter the size of array: "); scanf("%d",&size);
+printf("Enter the array elements in ascending order: ");
+for(i = 0; i< size; i++)
+{
+scanf("%d", &a[i]);
+}
+printf("Enter the key element:\n");
+scanf("%d", &key); low = 0;
+high = size - 1;
+while(high >= low)
+{
+mid = (low + high) / 2;
+if(key == a[mid])
+break;
+else
+{
+if(key > a[mid])
+low = mid + 1;
+else
+high = mid - 1;
+}
+}
+if(key == a[mid])
+printf("The key element is found at location %d", mid + 1);
+else
+printf("The key element is not found");
+return 0;
+}
